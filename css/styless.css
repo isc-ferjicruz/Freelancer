@@ -1,0 +1,264 @@
+:root{ /*Declaras varibles de Css*/
+    --blanco: #ffffff;
+    --oscuro: #212121; 
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisclaro: #dfe9f3;
+}
+/*Globales*/ 
+html{
+    font-size: 62.5%;  /*Establece por default la pagina para trabajar en rem*/
+    box-sizing: border-box; /*Sirve para el modelo caja, se agrega en html*/
+    scroll-snap-type: y mandatory; /*"y" es la coordenada y "mandatory" la orden para el tipo de scroll*/
+    
+}
+    /*Scroll snap*/
+.servicios,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center; /*Para que el scroll quede centrado en la seccion*/
+    scroll-snap-stop: always; /*para que pare siempre en la sección*/
+}
+
+*, *:before, *:after { /*Esta parte continua abajo del html y es parte para el modelo caja*/
+    box-sizing: inherit;
+}
+
+body{ /*todos los elementos que se declaren aqui aplica para toda la pagina*/
+    font-size: 16px; /* 1 rem = 10 px */
+    font-family: 'Krub', sans-serif; /*Para que la fuente se aplique en toda la pagina*/
+    background-image: linear-gradient(to top, var(--grisclaro) 0%, var(--blanco) 100%); /* Sirve para poner un color de fondo en degradado ("to top"-es la dirección del degradado)+variable del color + "0% que queremos iniciar" + variable del color "100% color total" */
+}
+
+.contenedor{ /*Clase para los margenes en la pagina*/
+    max-width: 120rem; /*Se establece como el rango maximo a utilizar y hace que el tamaño se ajuste a la pantalla*/
+    margin: 0 auto; /*Donde 0 es arriba y abajo y auto es izquierda y derecha, esto se utuliza para ajustar el margen externamente*/
+}
+
+.boton{
+    background-color: var(--secundario); /*Color de fondo a la etiqueta boton*/
+    color: var(--blanco); /* Color a la letra de la etiqueta */
+    padding: 1rem 3rem; /* Se establece las dimensiones de la etiqueta */
+    margin-top: 3rem; /*Se establece el margen de la etiqueta boton*/
+    font-size: 2rem; /*Tamaño de la letra en el boton*/
+    text-decoration: none; /*Quitamos el subrayado al texto*/
+    text-transform: uppercase; /*Pasamos a mayusculas al texto*/
+    font-weight: bold; /*Pasamos a negritas el texto*/
+    border-radius: .5rem; /*ajustamos el borde de la etiqueta*/
+    width: 80%; /*Para que el boton abarque el % de la pantalla dentro de la etiqueta*/
+    text-align: center; /*Para centrar el texto en el boton*/
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+.boton:hover{
+    cursor: pointer;/*Para que aparezca el punturo cuando este sobre el boton*/
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+/*Tipografia*/
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;      /* en esta parte se especifica las reglas para usarse en la pagina */
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1, h2, h3{
+    text-align: center;
+}
+
+/*Titulos*/
+.titulo span{
+    font-size: 2rem;
+}
+
+/*Utilidades*/
+.w-sm-100{
+    width: 100%; /*Todo el ancho de la etiqueta*/
+}
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end; /*mover hacia la derecha horizontalmente (cuando se active flex)*/
+}
+
+/*Navegación Principal*/
+.nag-bg{ /*Clase para color de fondo en la sección*/
+    background-color: var(--secundario);
+}
+
+.navegacion-principal{
+    display: flex; /*abre a otra seccion de ajustes */
+    flex-direction: column; /*Se pone la dirección en columnas para que con el media querie se restablesca a horizontal*/
+}
+
+@media (min-width: 768px) { /*se utiliza este media para ajustar el tamaño a una tableta*/
+    .navegacion-principal{
+        flex-direction: row; /*Hace que el menu se mire en horizontal hasta llegar a los 768px*/
+        justify-content: space-between;  /*Permite que los enlaces se ajusten en todo lo ancho de la pagina*/
+    }
+}
+
+.navegacion-principal a{
+    display: block; /*Para bloquear las dimensiones y se ajusten al tamaño de pantalla*/
+    text-align: center; /*Para centrar el texto cuando este en tamaños pequeños*/
+    padding: 1rem; /*Sirve para darle anchura a la seccion pero interna*/
+    color: var(--blanco);
+    text-decoration: none; /*para quitar la linea de hipervinculo pero sirve para dar estilo al subrayado*/
+    font-size: 2rem; /*Tamaño para el texto*/
+    font-weight: 700; /*Para poner el texto en negritas*/
+}
+
+.navegacion-principal a:hover{ /*hover es una seudoclase que aparece cuando te colocas sobre cualquier elemento*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* Hero */
+.hero{
+    background-image: url(../img/hero.jpg); /*Hace que se añada una imagen de fondo dede la ubicación donde se encuentre*/
+    background-repeat: no-repeat; /*Hace que la imagen de fondo no se repita en toda la pantalla*/
+    background-size: cover; /*Hace que la imagen se adapte a la pantalla*/
+    height: 450px; /* Es la anchura de la sección*/
+    position: relative; /*A la sección padre se le pone relativo*/
+    margin-bottom: 2rem; /*separacion del hero con el main*/
+}
+.contenido-hero{
+    position: absolute; /*A la sección hijo se le pone absolute*/
+    background-color: rgb(0 0 0 / 70%); /* donde / sireve para aplicar transparencia y % la intensidad de escala 0%-100%*/
+    width: 100%; /*Establece que la transparencia se aplique a todo lo largo de la sección*/
+    height: 100%; /*Establece que la transparencia se aplique a todo lo ancho de la sección*/
+    display: flex;              /* Todo este codigo           */
+    flex-direction: column;     /* sirve para centrar todo    */
+    align-items: center;        /* de forma horizontalmente   */
+    justify-content: center;    /* y de forma verticalmente   */
+}
+
+.contenido-hero h2, /* Especificamos que los cambios aplicaran a las dos etiquetas */
+.contenido-hero p{
+    color: var(--blanco);
+}
+.contenido-hero .ubicacion{
+    display: flex; /*agrega las propiedades de css flex*/
+    align-items: flex-end;
+}
+/*Servicios*/
+@media (min-width: 768px) {
+    .servicios{
+        display: grid; /*agrega las propiedades de css grid*/
+        grid-template-columns: repeat(3, 1fr); /*Para poner el grid en colunnas; donde repeat (3 son las columnas, 1fr las fracciones) */
+        column-gap: 1rem; /*Es para separacion de las celdas*/
+    }
+}
+.servicio{
+    display: flex; /*agrega las propiedades de css flex*/
+    flex-direction: column; /*Se invierte el ajuste (solo cuando es "colunm") */
+    align-items: center; /*debemos utilizarlo para alinear horizontalmete (porque esta invertido)*/
+}
+.servicio h3{
+color: var(--secundario); /*cambiamos color a la fuente*/
+font-weight: normal; /*cambiamos el estilo de fuente*/
+}
+.servicio p{
+    line-height: 2; /* cambiamos el interlineado */
+    text-align: center; /*centramos el texto*/
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex; /*agrega las propiedades de css flex*/
+    /*como esta por dafult "rows" se ajusta de esta forma*/
+    justify-content: space-evenly; /*alinear horizontalmente*/
+    align-items: center; /*alinear verticalmente*/
+}
+
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*Para comparar tamaño de la etiqueta a la total de la pagina*/
+    margin: 0 auto; /*Utilizar este codigo para centrar horizontalmente cuando sean elementos de tipo block, cuyo padre no sea display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{ /*Sirve para quitar el borde de la etiqueta del formulario */
+    border: none;
+}
+
+.formulario legend{
+    color: var(--primario); /*Cambiar color de texto*/
+    font-weight: 700; /*Cambiar el texto a negritas*/
+    text-align: center; /* Centrar texto */
+    font-size: 1.8rem; /* Tamaño de fuente */
+    text-transform: uppercase; /*Transformar a mayusculas*/
+    margin-bottom: 2rem; /*margen hacia abajo*/
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid; /*activamos los valores de css grid*/
+        grid-template-columns: 50% 50%; /*divir en dos columnas*/
+        grid-template-rows: auto auto 20rem; /*dividir en tres filas*/
+        column-gap: 1rem; /*para la separacion de las celdas*/
+    }
+}
+
+.campo:nth-child(3), /*nth-child: sirve como selector de variables repetidas*/
+.campo:nth-child(4){
+    grid-column: 1/3; /* para posicionar las columnas */
+}
+
+.campo{
+    margin-bottom: 1rem;
+
+}
+
+.campo label{
+    color: var(--blanco); /*Color al texto*/
+    font-weight: bold; /*Fuente en negritas (700)*/
+    margin-bottom: .5rem; /*margen hacia abajo*/
+    display: block; /*cada label ocupa todo el espacio disponible*/
+}
+
+.campo textarea{
+    height: 20rem; /*altura del textarea*/
+}
+
+.input-text{
+    width: 100%; /*todo el ancho de la etiqueta*/
+    border: none; /*quitar el borde*/
+    padding: 1.5rem; /*aumenta el area interna*/
+    border-radius: 0.5rem;
+}
+
+/*footer*/
+.footer{
+    text-align: center;
+}
